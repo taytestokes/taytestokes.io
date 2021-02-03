@@ -1,9 +1,9 @@
 import React from 'react'
-import Image from 'next/image'
-
 import { Box, Text } from '@chakra-ui/react'
 
-const index = () => {
+import { getAllBlogPosts } from 'utils/blog'
+
+const LandingPage = ({ blogPosts }) => {
   return (
     <Box w="100vw" h="100vh">
       {/* Linear Gradient Border At Top */}
@@ -19,7 +19,7 @@ const index = () => {
         py={12}
         px={4}
       >
-        <Text fontSize={['3xl', '5xl']} fontWeight="bold">
+        <Text fontSize="5xl" fontWeight="bold">
           Tayte Stokes
         </Text>
         <Text color="gray.600" mt={4} fontWeight="medium">
@@ -27,6 +27,24 @@ const index = () => {
           Frontend Engineer at MX, a Fintech Startup headquartered in the
           Silicon Slopes.
         </Text>
+        <Box>
+          {blogPosts.map((post) => {
+            return (
+              <Box
+                key={post.title}
+                display="flex"
+                flexDirection="column"
+                mt={4}
+              >
+                <Text fontSize="2xl" fontWeight="semibold">
+                  {post.title}
+                </Text>
+                <Text color="gray.600">{post.date}</Text>
+                <Text color="gray.600">{post.excerpt}</Text>
+              </Box>
+            )
+          })}
+        </Box>
       </Box>
       {/* Footer */}
       {/* <Box h="50px">OUI</Box> */}
@@ -34,4 +52,14 @@ const index = () => {
   )
 }
 
-export default index
+export async function getStaticProps() {
+  const blogPosts = getAllBlogPosts()
+
+  return {
+    props: {
+      blogPosts
+    }
+  }
+}
+
+export default LandingPage
