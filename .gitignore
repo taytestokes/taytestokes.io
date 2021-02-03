@@ -1,0 +1,9 @@
+# Node Modules
+node_modules
+
+# Next Modules
+.next
+
+# Env Files
+.env
+.env.*
