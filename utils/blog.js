@@ -27,3 +27,7 @@ export const getAllBlogPosts = () => {
     }
   })
 }
+
+export const getBlogPostContentBySlug = (slug) => {
+  return fs.readFileSync(path.join(blogPostsDirectory, `${slug}.mdx`), 'utf8')
+}

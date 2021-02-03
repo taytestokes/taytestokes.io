@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import NextLink from 'next/link'
+
+import { Box, Text, Link } from '@chakra-ui/react'
 
 import { getAllBlogPosts } from 'utils/blog'
 
@@ -19,14 +21,14 @@ const LandingPage = ({ blogPosts }) => {
         py={12}
         px={4}
       >
-        <Text fontSize="5xl" fontWeight="bold">
+        {/* <Text fontSize="5xl" fontWeight="bold">
           Tayte Stokes
         </Text>
         <Text color="gray.600" mt={4} fontWeight="medium">
           I'm a caffiene addicted Software Engineer. I'm currently working as a
           Frontend Engineer at MX, a Fintech Startup headquartered in the
           Silicon Slopes.
-        </Text>
+        </Text> */}
         <Box>
           {blogPosts.map((post) => {
             return (
@@ -36,9 +38,13 @@ const LandingPage = ({ blogPosts }) => {
                 flexDirection="column"
                 mt={4}
               >
-                <Text fontSize="2xl" fontWeight="semibold">
-                  {post.title}
-                </Text>
+                <NextLink href={`/blog/${post.slug}`}>
+                  <Link>
+                    <Text fontSize="2xl" fontWeight="semibold">
+                      {post.title}
+                    </Text>
+                  </Link>
+                </NextLink>
                 <Text color="gray.600">{post.date}</Text>
                 <Text color="gray.600">{post.excerpt}</Text>
               </Box>
