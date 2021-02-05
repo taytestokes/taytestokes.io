@@ -1,60 +1,66 @@
 import React from 'react'
 import NextLink from 'next/link'
 
-import { Box, Text, Link } from '@chakra-ui/react'
+import { Box, Text, Link, useColorModeValue } from '@chakra-ui/react'
+
+import PageLayout from 'layouts/PageLayout'
 
 import { getAllBlogPosts } from 'utils/blog'
 
 const LandingPage = ({ blogPosts }) => {
+  const blogTitleGradient = useColorModeValue(
+    'linear(to-l, gray.900, gray.900)',
+    'linear(to-l, #7928CA,#FF0080)'
+  )
+
+  const blogPostBackgroundColor = useColorModeValue('gray.100', '#121212')
+
   return (
-    <Box w="100vw" h="100vh">
-      {/* Linear Gradient Border At Top */}
-      <Box w="full" h="10px" bgGradient="linear(to-l, #7928CA, #FF0080)" />
-      {/* Content Container That Creates The Layout */}
-      <Box
-        w="full"
-        minHeight="calc(100vh - 60px)"
-        maxWidth="700px"
-        margin="0 auto"
-        display="flex"
-        flexDirection="column"
-        py={12}
-        px={4}
+    <PageLayout>
+      {/* <Text
+        fontWeight="bold"
+        fontSize="5xl"
+        bgGradient={blogTitleGradient}
+        bgClip="text"
       >
-        {/* <Text fontSize="5xl" fontWeight="bold">
-          Tayte Stokes
-        </Text>
-        <Text color="gray.600" mt={4} fontWeight="medium">
-          I'm a caffiene addicted Software Engineer. I'm currently working as a
-          Frontend Engineer at MX, a Fintech Startup headquartered in the
-          Silicon Slopes.
-        </Text> */}
-        <Box>
-          {blogPosts.map((post) => {
-            return (
-              <Box
-                key={post.title}
-                display="flex"
-                flexDirection="column"
-                mt={4}
-              >
-                <NextLink href={`/blog/${post.slug}`}>
-                  <Link>
-                    <Text fontSize="2xl" fontWeight="semibold">
-                      {post.title}
-                    </Text>
-                  </Link>
-                </NextLink>
-                <Text color="gray.600">{post.date}</Text>
-                <Text color="gray.600">{post.excerpt}</Text>
-              </Box>
-            )
-          })}
-        </Box>
-      </Box>
-      {/* Footer */}
-      {/* <Box h="50px">OUI</Box> */}
-    </Box>
+        Tayte Stokes
+      </Text>
+      <Text>Welcome to my personal space of the internet. </Text>
+
+      <Text
+        fontWeight="bold"
+        fontSize="2xl"
+        bgGradient={blogTitleGradient}
+        bgClip="text"
+      >
+        Blog Posts
+      </Text> */}
+      {/* {blogPosts.map((post) => {
+        return (
+          <Box
+            key={post.title}
+            display="flex"
+            flexDirection="column"
+            mt={4}
+            p={4}
+            border="1px"
+            borderColor="gray.200"
+            bg={blogPostBackgroundColor}
+            borderRadius={3}
+          >
+            <NextLink href={`/blog/${post.slug}`}>
+              <Link _hover={{ textDecoration: 'none' }}>
+                <Text fontSize="2xl" fontWeight="semibold">
+                  {post.title}
+                </Text>
+              </Link>
+            </NextLink>
+            <Text>{post.date}</Text>
+            <Text>{post.excerpt}</Text>
+          </Box>
+        )
+      })} */}
+    </PageLayout>
   )
 }
 

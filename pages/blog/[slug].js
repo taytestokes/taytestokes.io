@@ -3,12 +3,14 @@ import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 
+import PageLayout from 'layouts/PageLayout'
+
 import { getBlogPostContentBySlug, getBlogPostSlugs } from 'utils/blog'
 
 const BlogPostPage = ({ source, postData }) => {
   const content = hydrate(source, {})
 
-  return <div>{postData.title}</div>
+  return <PageLayout>{content}</PageLayout>
 }
 
 export async function getStaticProps(context) {
