@@ -1,77 +1,54 @@
 import React from 'react'
-import NextLink from 'next/link'
-
-import { Box, Text, Link, useColorModeValue } from '@chakra-ui/react'
+import { FiMail } from 'react-icons/fi'
+import { Box, Text, Link, Button, useColorModeValue } from '@chakra-ui/react'
 
 import PageLayout from 'layouts/PageLayout'
 
-import { getAllBlogPosts } from 'utils/blog'
-
-const LandingPage = ({ blogPosts }) => {
-  const blogTitleGradient = useColorModeValue(
-    'linear(to-l, gray.900, gray.900)',
+const LandingPage = () => {
+  const contactButtonGradient = useColorModeValue(
+    'linear(to-l, gray.100, gray.100)',
     'linear(to-l, #7928CA,#FF0080)'
   )
-
-  const blogPostBackgroundColor = useColorModeValue('gray.100', '#121212')
+  const textColor = useColorModeValue('gray.500', 'whiteAlpha.900')
 
   return (
     <PageLayout>
-      {/* <Text
-        fontWeight="bold"
-        fontSize="5xl"
-        bgGradient={blogTitleGradient}
-        bgClip="text"
-      >
-        Tayte Stokes
+      <Text fontWeight="bold" fontSize={['4xl', '6xl']} mt={32}>
+        Hey, I'm Tayte
       </Text>
-      <Text>Welcome to my personal space of the internet. </Text>
-
       <Text
-        fontWeight="bold"
-        fontSize="2xl"
-        bgGradient={blogTitleGradient}
-        bgClip="text"
+        mt={4}
+        fontWeight="medium"
+        color={textColor}
+        fontSize={['md', 'xl']}
       >
-        Blog Posts
-      </Text> */}
-      {/* {blogPosts.map((post) => {
-        return (
-          <Box
-            key={post.title}
-            display="flex"
-            flexDirection="column"
-            mt={4}
-            p={4}
-            border="1px"
-            borderColor="gray.200"
-            bg={blogPostBackgroundColor}
-            borderRadius={3}
-          >
-            <NextLink href={`/blog/${post.slug}`}>
-              <Link _hover={{ textDecoration: 'none' }}>
-                <Text fontSize="2xl" fontWeight="semibold">
-                  {post.title}
-                </Text>
-              </Link>
-            </NextLink>
-            <Text>{post.date}</Text>
-            <Text>{post.excerpt}</Text>
-          </Box>
-        )
-      })} */}
+        I'm a Javascript Developer focused in creating web applications using
+        React and Node. Currently, I'm working as a Frontend Engineer for a
+        FinTech company based in the Silicon Slopes called MX.
+      </Text>
+      <Button
+        w="200px"
+        mt={8}
+        leftIcon={<FiMail />}
+        bgGradient={contactButtonGradient}
+        _hover={{
+          bgGradient: contactButtonGradient
+        }}
+        _active={{
+          bgGradient: contactButtonGradient
+        }}
+      >
+        <Link
+          href="mailto:taytestokes9328@gmail.com"
+          _hover={{
+            textDecoration: 'none'
+          }}
+        >
+          Shoot me an email
+        </Link>
+      </Button>
     </PageLayout>
   )
-}
-
-export async function getStaticProps() {
-  const blogPosts = getAllBlogPosts()
-
-  return {
-    props: {
-      blogPosts
-    }
-  }
 }
 
 export default LandingPage
