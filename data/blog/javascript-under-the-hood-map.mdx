@@ -1,0 +1,97 @@
+---
+title: 'Javascript Under The Hood: Map'
+excerpt: 'Take a look under the hood of the array prototype map and see what is actually going on behind the scenes.'
+author: 'Tayte Stokes'
+date: '2020-02-02T16:51:00.000Z'
+layout: post
+draft: false
+path: '/posts/under-the-hood/array-prototype-method-map'
+category: 'Javascript'
+tags:
+  - 'Javascript'
+  - 'Under The Hood'
+---
+
+In my personal opinion, one of the most used methods in javascript is the array prototype map. It's a very powerful and dynamic method that allows you to get the job done in most situations when working with array data types.
+
+If you are not familiar with the map prototype method, I'll try my best to explain it. Map is a built in method that exists in the protoype of the array data structure, meaning you can call this on every array instance that is created. The method will create a new array instance in memory that will be populated with the results of calling a provided callback function on every single element that exists inside the array instance that is being processed.
+
+The code looks a little something like this.
+
+```js
+const numbers = [1, 2, 3, 4, 5]
+
+const squaredNumbers = numbers.map((element, index, array) => {
+  return element * element
+})
+
+console.log(squaredNumbers) // result: [1, 4, 9, 16, 25]
+```
+
+So let's talk about the syntax. We invoke the map method by using the parenthesis and pass in a callback function. The callback function has three parameters that it accepts. The current element in the array that the callback function is being invoked on, the index value of where that element currently sits inside the array, and the array itself that is being processed. The value that is returned from the callback function will be put into a brand new array instance that map creates for us.
+
+There's a lot of magic that is happening behind the scenes here that map is doing for us. Let's pretend that map doesn't yet exist and that we will create the method ourselves to take a look at what's happening underneath the hood.
+
+Before we hop into recreating the map prototype method, we need to fully understand what it is doing for us. Let's note down some of the key functionalites of map.
+
+- The method creates a brand new array instance
+- The method receieves a callback function as an argument
+- The method invokes the callback function on every element in the array
+- The callback function has access to the current element, the index value, and the array that's being processed
+- The method populates the new array with the results of each execution of the callback function
+
+Now that we have a solid understanding of the main features that make the map method so great, let's go ahead and recreate it. The first thing that we need to do is create a new property on the Array data structure's prototype object to house the logic.
+
+```js
+Array.prototype.maptastic = function () {}
+```
+
+We first referred to the Array data structure then used dot notation to access it's prototype object. We then used dot notation again to create a new property on the prototype object called maptastic (this is our version of map) and set it's value equal to an anonymous function. Notice how we are using a function delcaration here and not an arrow function. If we were to use an arrow function, the context of the function would not be what we need it to be.
+
+Let's go ahead and add the logic that map performs.
+
+```js
+Array.prototype.maptastic = function (callback) {
+  const mutatedArray = []
+  for (let i = 0; i < this.length; i++) {
+    const mutatedValue = callback(this[i], i, this)
+    mutatedArray.push(mutatedValue)
+  }
+  return mutatedArray
+}
+```
+
+The first thing we implemented was the ability to accept a function as an argument by setting the parameter. We called this parameter callback and we will be using it later in the logic.
+
+We then create an empty array called mutatedArray that will be returned from the map function later. This array will hold the updated values for the element after being processed by the callback function.
+
+Since the original map prototype method executes the callback function on every element in the array, we want to implement a for loop and iterate over the array that this method is being called on. In this instance we use the keyword "this" to reference the array that we are calling this method on. Remember earlier when I said we want to make sure we are using a function declaration here and not an arrow function? The reason why is becuase the arrow function will change the context, or in other words, the value of the "this" keyword to the object that owns the executing code. In this case, that would be the prototype object and we don't want that.
+
+We now want to execute our callback function on each iteration inside the loop passing in the correct values. We will first pass in the element that is at the current iteration, the index value of the element, and the array that we are iterating through. We will then store the result of the callback function into a variable and push that variable into our mutatedArray.
+
+Once the loop ends, our mutatedArray should now hold all of the results from the callback function being executed on each element. We then want to return our mutatedArray since this will be the new array that we want to receieve.
+
+Now let's see our rebuilt map prototype method in action.
+
+```js
+Array.prototype.maptastic = function (callback) {
+  const mutatedArray = []
+  for (let i = 0; i < this.length; i++) {
+    const mutatedValue = callback(this[i], i, this)
+    mutatedArray.push(mutatedValue)
+  }
+  return mutatedArray
+}
+
+const numbers = [1, 2, 3, 4, 5]
+
+const squaredNumbers = numbers.maptastic((element, index, array) => {
+  return element * element
+})
+
+console.log(squaredNumbers) // result: [1, 4, 9, 16, 25]
+```
+
+We have now rebuilt the functionality of the array prototype method map, but this time we called it maptastic. 🎉
+
+In conclusion, I hope this helps you gain a better understanding of what's going on underneath the hood of javascript when it comes to these magical prototype methods.

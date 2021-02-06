@@ -14,7 +14,6 @@ const BlogPostCard = ({ post }) => {
     <Box mt={8}>
       <NextLink href={`/blog/${post.slug}`}>
         <Link
-          w="sm"
           fontSize={['xl', '3xl']}
           fontWeight="bold"
           bgGradient={titleTextColor}

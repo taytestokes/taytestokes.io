@@ -16,7 +16,7 @@ const PageLayout = ({ children }) => {
       <Box
         w="full"
         minH="calc(100vh - 110px)"
-        maxWidth="900px"
+        maxWidth="800px"
         margin="0 auto"
         display="flex"
         flexDirection="column"

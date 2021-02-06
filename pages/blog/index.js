@@ -10,17 +10,8 @@ const BlogPage = ({ blogPosts }) => {
 
   return (
     <PageLayout>
-      <Text fontWeight="bold" fontSize={['4xl', '6xl']} mt={32}>
+      <Text fontWeight="bold" fontSize={['4xl', '6xl']} mt={12}>
         Blog
-      </Text>
-      <Text
-        mt={4}
-        fontWeight="medium"
-        color={textColor}
-        fontSize={['md', 'xl']}
-      >
-        Welcome to my blog - this is where I plan to document my learnings to
-        help further my undertsanding and share what I learn.
       </Text>
       <Box>
         {blogPosts.map((post) => (

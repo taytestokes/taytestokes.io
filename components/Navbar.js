@@ -9,7 +9,14 @@ import MobileNavMenu from 'components/MobileNavMenu'
 
 const Navbar = () => {
   return (
-    <Box h="100px" margin="0 auto" display="flex" alignItems="center" px={4}>
+    <Box
+      h="100px"
+      maxWidth="1200px"
+      margin="0 auto"
+      display="flex"
+      alignItems="center"
+      px={4}
+    >
       <NextLink href="/">
         <Link
           display="flex"
