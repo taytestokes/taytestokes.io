@@ -10,7 +10,7 @@ const BlogPage = ({ blogPosts }) => {
 
   return (
     <PageLayout>
-      <Text fontWeight="bold" fontSize={['4xl', '6xl']} mt={12}>
+      <Text fontWeight="bold" fontSize={['4xl', '6xl']}>
         Blog
       </Text>
       <Box>

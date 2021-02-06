@@ -20,7 +20,7 @@ const PageLayout = ({ children }) => {
         margin="0 auto"
         display="flex"
         flexDirection="column"
-        px={4}
+        p={4}
       >
         {children}
       </Box>

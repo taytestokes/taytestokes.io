@@ -13,7 +13,7 @@ const LandingPage = () => {
 
   return (
     <PageLayout>
-      <Text fontWeight="bold" fontSize={['4xl', '6xl']} mt={12}>
+      <Text fontWeight="bold" fontSize={['4xl', '6xl']}>
         Hey, I'm Tayte
       </Text>
       <Text
