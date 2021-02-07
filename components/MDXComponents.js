@@ -2,19 +2,17 @@ import Image from 'next/image'
 import {
   Code,
   Text,
-  List,
   ListItem,
-  ListIcon, // When I want to start having lists with icons :)
   OrderedList,
   UnorderedList,
-  useColorModeValue,
-  useColorMode
+  useColorModeValue
 } from '@chakra-ui/react'
 
 // Code Block
 const CodeBlock = ({ children }) => {
-  const backgroundColor = useColorModeValue('gray.50', '#0a0a0a')
-  const borderColor = useColorModeValue('gray.200', '#141414')
+  const backgroundColor = useColorModeValue('gray.50', 'dark.100')
+  const borderColor = useColorModeValue('gray.200', 'dark.200')
+
   return (
     <Code
       w="full"

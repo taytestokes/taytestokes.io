@@ -20,8 +20,19 @@ const styles = {
   })
 }
 
+const colors = {
+  dark: {
+    50: '#000000',
+    100: '#0a0a0a',
+    200: '#141414',
+    300: '#1f1f1f',
+    400: '#292929'
+  }
+}
+
 export default extendTheme({
   config,
   fonts,
-  styles
+  styles,
+  colors
 })
