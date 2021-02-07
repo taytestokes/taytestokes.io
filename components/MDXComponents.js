@@ -6,19 +6,23 @@ import {
   ListItem,
   ListIcon, // When I want to start having lists with icons :)
   OrderedList,
-  UnorderedList
+  UnorderedList,
+  useColorModeValue,
+  useColorMode
 } from '@chakra-ui/react'
 
 // Code Block
 const CodeBlock = ({ children }) => {
+  const backgroundColor = useColorModeValue('gray.50', '#0a0a0a')
+  const borderColor = useColorModeValue('gray.200', '#141414')
   return (
     <Code
       w="full"
       mt={8}
       p={4}
-      bg="gray.50"
+      bg={backgroundColor}
       border="1px"
-      borderColor="gray.200"
+      borderColor={borderColor}
       borderRadius={3}
       overflowX="scroll"
     >
@@ -53,8 +57,10 @@ const H3 = ({ children }) => {
 }
 
 const P = ({ children }) => {
+  const color = useColorModeValue('gray.700', 'gray.200')
+
   return (
-    <Text mt={8} color="gray.700">
+    <Text mt={8} color={color}>
       {children}
     </Text>
   )
@@ -78,8 +84,10 @@ const CustomOrderedList = ({ children }) => {
 }
 
 const CustomListItem = ({ children }) => {
+  const color = useColorModeValue('gray.700', 'gray.200')
+
   return (
-    <ListItem color="gray.700" mt={2}>
+    <ListItem color={color} mt={2}>
       {children}
     </ListItem>
   )

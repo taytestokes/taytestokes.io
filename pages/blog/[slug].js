@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 
-import { Box, Flex, Code, Text, useColorModeValue } from '@chakra-ui/react'
+import { Box, Text, useColorModeValue } from '@chakra-ui/react'
 
 import PageLayout from 'layouts/PageLayout'
 
