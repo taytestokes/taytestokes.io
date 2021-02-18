@@ -4,7 +4,6 @@ import Image from 'next/image'
 export const Layout = ({ children }) => {
   return (
     <div className="min-h-screen w-screen">
-      <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500" />
       <nav className="h-24 w-full">
         <div className="container mx-auto h-full w-full flex items-center justify-between px-4 max-w-4xl">
           <Image
