@@ -28,6 +28,7 @@ const AboutPage = () => {
     //     technologies to learn about and stay updated on.
     //   </Text>
     // </PageLayout>
+    <></>
   )
 }
 
