@@ -3,10 +3,6 @@ import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 
-import { Box, Text, useColorModeValue } from '@chakra-ui/react'
-
-import PageLayout from 'layouts/PageLayout'
-
 import { getBlogPostContentBySlug, getBlogPostSlugs } from 'utils/blog'
 
 import MDXComponents from 'components/MDXComponents'
@@ -16,26 +12,7 @@ const BlogPostPage = ({ source, postData }) => {
     components: MDXComponents
   })
 
-  return (
-    <PageLayout>
-      <Box as="article">
-        <Text
-          fontSize={['2xl', '4xl']}
-          fontWeight="bold"
-          bgGradient={useColorModeValue(
-            'linear(to-l, gray.900, gray.900)',
-            'linear(to-l, #7928CA, #FF0080)'
-          )}
-          bgClip="text"
-        >
-          {postData.title}
-        </Text>
-        <Box mt={8} fontSize="lg" lineHeight={2}>
-          {content}
-        </Box>
-      </Box>
-    </PageLayout>
-  )
+  return <>{/* COMING SOON */}</>
 }
 
 export async function getStaticProps(context) {

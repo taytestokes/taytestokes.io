@@ -4,9 +4,7 @@
     "paths": {
       "components/*": ["components/*"],
       "public/*": ["public/*"],
-      "layouts/*": ["layouts/*"],
-      "utils/*": ["utils/*"],
-      "styles/*": ["styles/*"]
+      "utils/*": ["utils/*"]
     }
   }
 }
