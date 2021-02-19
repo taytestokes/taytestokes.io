@@ -28,6 +28,43 @@ const AboutPage = () => {
     //     technologies to learn about and stay updated on.
     //   </Text>
     // </PageLayout>
+
+    /* <div className="mt-8 flex items-center">
+          <button className="mx-2 bg-gradient-to-r from-pink-400 to-purple-600 text-white py-1 px-4 rounded-md">
+            <a
+              href="https://github.com/TayteStokes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <FaGithub />
+              <p className="ml-1">Github</p>
+            </a>
+          </button>
+          <button className="mx-2 bg-gradient-to-r from-pink-400 to-purple-600 text-white py-1 px-4 rounded-md">
+            <a
+              href="https://twitter.com/taytestokes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <FaTwitter />
+              <p className="ml-1">Twitter</p>
+            </a>
+          </button>
+          <button className="mx-2 bg-gradient-to-r from-pink-400 to-purple-600 text-white py-1 px-4 rounded-md">
+            <a
+              href="https://www.linkedin.com/in/tayte-stokes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <FaLinkedin />
+              <p className="ml-1">LinkedIn</p>
+            </a>
+          </button>
+        </div> */
+
     <></>
   )
 }
