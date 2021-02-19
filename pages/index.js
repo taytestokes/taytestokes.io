@@ -10,12 +10,15 @@ const LandingPage = () => {
       <div className="py-24 bg-gray-50">
         <div className="container mx-auto flex flex-col items-center px-4 max-w-4xl ">
           <div className="p-2 bg-gray-100 rounded-full flex">
-            <Image
-              src="/profile-picture.jpg"
-              height={100}
-              width={100}
-              className="rounded-full"
-            />
+            <div className="p-2 bg-gray-200 rounded-full flex">
+              <Image
+                src="/profile-picture.jpg"
+                alt="Picture of Tayte"
+                height={100}
+                width={100}
+                className="rounded-full"
+              />
+            </div>
           </div>
           <h1 className="font-bold text-5xl mt-4">Tayte Stokes</h1>
           <p className="mt-2 text-gray-600 text-lg">Software Engineer</p>
@@ -73,13 +76,13 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="mt-24">
+      {/* <div className="mt-24">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="font-semibold text-3xl" id="about">
             Skills
           </h1>
         </div>
-      </div>
+      </div> */}
 
       <div className="mt-24">
         <div className="container mx-auto px-4 max-w-4xl">

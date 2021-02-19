@@ -9,6 +9,7 @@ export const Layout = ({ children }) => {
         <div className="container mx-auto h-full w-full flex items-center justify-between px-4 max-w-4xl">
           <Image
             src="/logo.svg"
+            alt="taytestokes.io logo"
             height={30}
             width={30}
             className="rounded-full"
