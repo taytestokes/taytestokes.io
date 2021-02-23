@@ -26,14 +26,14 @@ export const Layout = ({ children }) => {
               </Link>
             </li>
             <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-              <Link href="/#experience">
+              <Link href="/blog">
                 <a>Blog</a>
               </Link>
             </li>
           </ul>
         </div>
       </nav>
-      <main className="h-full w-full">{children}</main>
+      <main className="h-full w-full bg-gray-50">{children}</main>
       <footer className="h-24 w-full">
         <div className="container mx-auto h-full w-full flex items-center px-4 max-w-4xl">
           <p>{'Made with <3'}</p>

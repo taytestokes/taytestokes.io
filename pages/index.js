@@ -7,8 +7,8 @@ import { Layout } from 'components//Layout'
 const LandingPage = () => {
   return (
     <Layout>
-      <div className="py-24 bg-gray-50">
-        <div className="container mx-auto flex flex-col items-center px-4 max-w-4xl ">
+      <div className="py-24">
+        <div className="container mx-auto flex flex-col items-center px-4 max-w-4xl">
           <div className="p-2 bg-gray-100 rounded-full flex">
             <div className="p-2 bg-gray-200 rounded-full flex">
               <Image
@@ -76,13 +76,13 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* <div className="mt-24">
+      <div className="mt-24">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="font-semibold text-3xl" id="about">
-            Skills
+            Projects
           </h1>
         </div>
-      </div> */}
+      </div>
 
       <div className="mt-24">
         <div className="container mx-auto px-4 max-w-4xl">
