@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
@@ -12,7 +13,16 @@ const BlogPostPage = ({ source, postData }) => {
     components: MDXComponents
   })
 
-  return <>{content}</>
+  return (
+    <div className="lg:w-2/5 min-h-screen m-auto p-4">
+      <Head>
+        <title>Tayte Stokes | {postData.title}</title>
+      </Head>
+
+      <h1 className="text-2xl font-bold">{postData.title}</h1>
+      <article className="mt-4 text-gray-600">{content}</article>
+    </div>
+  )
 }
 
 export async function getStaticProps(context) {
