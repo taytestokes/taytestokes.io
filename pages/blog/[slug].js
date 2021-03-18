@@ -12,11 +12,12 @@ const BlogPostPage = ({ source, postData }) => {
     components: MDXComponents
   })
 
-  return <>{/* COMING SOON */}</>
+  return <>{content}</>
 }
 
 export async function getStaticProps(context) {
   const postContent = getBlogPostContentBySlug(context.params.slug)
+
   const { data, content } = matter(postContent)
   const mdxSource = await renderToString(content, {
     scope: data
@@ -39,6 +40,8 @@ export async function getStaticPaths() {
       }
     }
   })
+
+  console.log(paths)
 
   return {
     paths,

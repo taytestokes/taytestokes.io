@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -6,11 +5,12 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      minHeight: {
+        // custom height for content between navbar and footer
+        content: 'calc(100vh - 4rem)'
       },
       colors: {
-        gray: colors.trueGray
+        gray: colors.gray
       }
     }
   },
